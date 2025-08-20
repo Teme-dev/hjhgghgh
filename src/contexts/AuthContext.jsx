@@ -36,7 +36,8 @@ export const AuthProvider = ({ children }) => {
     try {
       await apiService.getProfile();
     } catch (error) {
-      // Token is invalid, logout user
+      // Token is invalid or expired, logout user
+      console.warn('Token verification failed:', error.message);
       logout();
     }
   };
@@ -57,6 +58,7 @@ export const AuthProvider = ({ children }) => {
       
       return studentUser;
     } catch (error) {
+      console.error('Login failed:', error.message);
       throw error;
     } finally {
       setLoading(false);
@@ -79,6 +81,7 @@ export const AuthProvider = ({ children }) => {
       
       return adminUser;
     } catch (error) {
+      console.error('Admin login failed:', error.message);
       throw error;
     } finally {
       setLoading(false);

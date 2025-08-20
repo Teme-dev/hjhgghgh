@@ -34,16 +34,33 @@ class ApiService {
 			const response = await fetch(url, config);
 
 			if (!response.ok) {
+				// Handle 401 Unauthorized errors
+				if (response.status === 401) {
+					// Token expired or invalid, logout user
+					localStorage.removeItem("user");
+					window.location.href = "/login";
+					throw new Error("Session expired. Please login again.");
+				}
+				
+				// Handle 404 Not Found errors
+				if (response.status === 404) {
+					throw new Error("Resource not found. Please check the URL.");
+				}
+				
 				const errorData = await response.json().catch(() => ({}));
 				throw new Error(
 					errorData.message || `HTTP error! status: ${response.status}`
 				);
 			}
-			console.log("Club created successfully:", response);
 
 			return await response.json();
 		} catch (error) {
-			console.error("API request failed:", error);
+			// Handle connection refused errors
+			if (error.message.includes('Failed to fetch') || error.name === 'TypeError') {
+				throw new Error("Unable to connect to server. Please check if the backend is running.");
+			}
+			
+			console.error(`API request failed for ${endpoint}:`, error.message);
 			throw error;
 		}
 	}

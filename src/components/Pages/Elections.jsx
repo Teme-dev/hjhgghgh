@@ -425,7 +425,7 @@ export function Elections() {
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
 						{filteredElections.map((election, index) => (
 							<motion.div
-								key={election.id}
+								key={election.id || election._id || `election-${index}`}
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ delay: index * 0.1 }}
@@ -576,7 +576,7 @@ export function Elections() {
 								<div className="space-y-4">
 									{selectedElection.candidates.map((candidate) => (
 										<div
-											key={candidate.id}
+											key={candidate.id || candidate._id || `candidate-${candidate.name}`}
 											className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors">
 											<div className="flex items-start space-x-4">
 												<img

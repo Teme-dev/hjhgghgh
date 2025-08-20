@@ -53,6 +53,19 @@ const userSchema = new mongoose.Schema(
 			required: [true, "Please provide your academic year"],
 			enum: ["1st Year", "2nd Year", "3rd Year", "4th Year", "5th Year"],
 		},
+		role: {
+			type: String,
+			enum: ["student", "admin"],
+			default: "student",
+		},
+		isAdmin: {
+			type: Boolean,
+			default: false,
+		},
+		profileImage: {
+			type: String,
+			default: "https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=400",
+		},
 	},
 	{
 		timestamps: true,

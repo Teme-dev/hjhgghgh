@@ -195,6 +195,12 @@ router.patch("/:id/status", protect, adminOnly, async (req, res) => {
 		});
 	} catch (error) {
 		console.error("Update complaint status error:", error);
+		
+		// Prevent multiple responses
+		if (res.headersSent) {
+			return;
+		}
+		
 		return res.status(500).json({
 			success: false,
 			message: "Server error updating complaint status",
@@ -256,6 +262,12 @@ router.post("/:id/responses", protect, adminOnly, async (req, res) => {
 		});
 	} catch (error) {
 		console.error("Add response error:", error);
+		
+		// Prevent multiple responses
+		if (res.headersSent) {
+			return;
+		}
+		
 		return res.status(500).json({
 			success: false,
 			message: "Server error adding response",

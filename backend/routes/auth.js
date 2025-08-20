@@ -126,16 +126,11 @@ router.post("/login", validateUserLogin, async (req, res) => {
 		// Check password
 		const isMatch = await user.matchPassword(password);
 		if (!isMatch) {
-			// Increment login attempts
-			await user.incLoginAttempts();
 			return res.status(401).json({
 				success: false,
 				message: "Invalid credentials",
 			});
 		}
-
-		// Update last login
-		await user.updateLastLogin();
 
 		// Generate token
 		const token = generateToken(user._id);
@@ -159,6 +154,12 @@ router.post("/login", validateUserLogin, async (req, res) => {
 		});
 	} catch (error) {
 		console.error("Login error:", error);
+		
+		// Prevent multiple responses
+		if (res.headersSent) {
+			return;
+		}
+		
 		res.status(500).json({
 			success: false,
 			message: "Server error during login",

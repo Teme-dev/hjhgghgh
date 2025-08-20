@@ -196,7 +196,7 @@ export function Latest() {
 										{filteredPosts.length > 0 ? (
 											filteredPosts.map((post) => (
 												<PostCard
-													key={post.id}
+													key={post.id || post._id || `post-${post.title}`}
 													post={post}
 													onDelete={handleDeletePost}
 													canDelete={user?.isAdmin}

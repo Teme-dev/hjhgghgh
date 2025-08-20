@@ -329,7 +329,7 @@ export function Complaints() {
 					<div className="space-y-4">
 						{filteredComplaints.map((complaint) => (
 							<div
-								key={complaint.id}
+								key={complaint.id || complaint._id || `complaint-${complaint.caseId}`}
 								className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
 								<div className="flex justify-between">
 									<div>

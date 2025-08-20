@@ -39,14 +39,14 @@ export function Header() {
 					<div className="flex justify-between items-center">
 						<div className="flex space-x-6">
 							<span>
-								<i className="fas fa-map-marker-alt p-2"></i> DBU Campus,
+								<i className="fas fa-map-marker-alt mr-2"></i> DBU Campus,
 								Student Union Building
 							</span>
 							<span>
-								<i className="fas fa-envelope p-2"></i> studentunion@dbu.edu.et
+								<i className="fas fa-envelope mr-2"></i> studentunion@dbu.edu.et
 							</span>
 							<span>
-								<i className="fas fa-phone p-2"></i> +251940414243
+								<i className="fas fa-phone mr-2"></i> +251940414243
 							</span>
 						</div>
 						<div className="flex space-x-3">

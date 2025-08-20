@@ -27,16 +27,16 @@ export function Footer() {
 
 						<div className="flex space-x-3">
 							<a href="#" className="hover:text-blue-200">
-								<i class="fab fa-facebook"></i>
+								<i className="fab fa-facebook"></i>
 							</a>
 							<a href="#" className="hover:text-blue-200">
-								<i class="fab fa-telegram"></i>
+								<i className="fab fa-telegram"></i>
 							</a>
 							<a href="#" className="hover:text-blue-200">
-								<i class="fab fa-instagram"></i>
+								<i className="fab fa-instagram"></i>
 							</a>
 							<a href="#" className="hover:text-blue-200">
-								<i class="fab fa-tiktok"></i>
+								<i className="fab fa-tiktok"></i>
 							</a>
 						</div>
 					</div>
@@ -80,16 +80,16 @@ export function Footer() {
 						<h4 className="text-lg font-semibold mb-4">Contact Us</h4>
 						<ul className="space-y-2 text-gray-400">
 							<li className="flex items-center space-x-2">
-								<i class="fas fa-map-marker-alt p-2 text-white"></i>
+								<i className="fas fa-map-marker-alt mr-2 text-white"></i>
 								<span>DBU Campus, Student Union Building</span>
 							</li>
 							<li className="flex items-center space-x-2">
-								<i class="fas fa-envelope p-2 text-white"></i>
+								<i className="fas fa-envelope mr-2 text-white"></i>
 
 								<span>studentunion@dbu.edu.et</span>
 							</li>
 							<li className="flex items-center space-x-2">
-								<i class="fas fa-phone p-2 text-white"></i>
+								<i className="fas fa-phone mr-2 text-white"></i>
 								<span>+251940414243</span>
 							</li>
 						</ul>

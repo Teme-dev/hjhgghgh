@@ -375,7 +375,7 @@ export function Clubs() {
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
 						{filteredClubs.map((club) => (
 							<div
-								key={club.id}
+								key={club.id || club._id || `club-${club.name}`}
 								className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
 								<div className="relative">
 									<img
