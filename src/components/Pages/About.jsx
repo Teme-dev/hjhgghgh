@@ -154,7 +154,7 @@ export function About() {
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 						{values.map((value, index) => (
 							<motion.div
-								key={index}
+								key={`value-${index}-${value.title}`}
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ delay: index * 0.1 }}
@@ -188,7 +188,7 @@ export function About() {
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 						{leadership.map((leader, index) => (
 							<motion.div
-								key={index}
+								key={`leader-${index}-${leader.name}`}
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
 								transition={{ delay: index * 0.1 }}
@@ -226,7 +226,7 @@ export function About() {
 					<div className="space-y-8">
 						{achievements.map((achievement, index) => (
 							<motion.div
-								key={index}
+								key={`achievement-${index}-${achievement.year}`}
 								initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
 								animate={{ opacity: 1, x: 0 }}
 								transition={{ delay: index * 0.2 }}

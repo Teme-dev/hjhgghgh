@@ -139,7 +139,7 @@ export function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
               <motion.div
-                key={index}
+                key={`contact-${index}-${info.title}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -333,7 +333,7 @@ export function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {branches.slice(0, -1).map((branch, index) => (
               <motion.div
-                key={branch.value}
+                key={`branch-${branch.value}-${index}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
