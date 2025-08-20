@@ -51,7 +51,8 @@ router.get("/", optionalAuth, async (req, res) => {
 
 		// Transform clubs to include member count and event count
 		const transformedClubs = clubs.map((club) => ({
-			id: club._id,
+			id: club._id.toString(),
+			_id: club._id,
 			name: club.name,
 			description: club.description,
 			category: club.category,

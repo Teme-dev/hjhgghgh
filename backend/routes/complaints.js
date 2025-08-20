@@ -63,8 +63,14 @@ router.get("/", protect, async (req, res) => {
 			total,
 			page,
 			pages: Math.ceil(total / limit),
-			complaints,
-			data: complaints, // Add data field for compatibility
+			complaints: complaints.map(complaint => ({
+				...complaint.toObject(),
+				id: complaint._id.toString(),
+			})),
+			data: complaints.map(complaint => ({
+				...complaint.toObject(),
+				id: complaint._id.toString(),
+			})), // Add data field for compatibility
 		});
 	} catch (error) {
 		console.error("Get complaints error:", error);

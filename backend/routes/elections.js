@@ -76,8 +76,14 @@ router.get("/", optionalAuth, async (req, res) => {
 			total,
 			page,
 			pages: Math.ceil(total / limit),
-			elections,
-			data: elections, // Add data field for compatibility
+			elections: elections.map(election => ({
+				...election.toObject(),
+				id: election._id.toString(),
+			})),
+			data: elections.map(election => ({
+				...election.toObject(),
+				id: election._id.toString(),
+			})), // Add data field for compatibility
 		});
 	} catch (error) {
 		console.error("Get elections error:", error);

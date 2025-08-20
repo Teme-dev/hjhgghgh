@@ -55,8 +55,14 @@ router.get("/", optionalAuth, async (req, res) => {
 			total,
 			page,
 			pages: Math.ceil(total / limit),
-			posts,
-			data: posts, // Add data field for compatibility
+			posts: posts.map(post => ({
+				...post.toObject(),
+				id: post._id.toString(),
+			})),
+			data: posts.map(post => ({
+				...post.toObject(),
+				id: post._id.toString(),
+			})), // Add data field for compatibility
 		});
 	} catch (error) {
 		console.error("Get posts error:", error);
